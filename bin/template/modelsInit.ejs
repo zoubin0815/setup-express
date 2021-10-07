@@ -1,0 +1,11 @@
+// 案例
+var pool = require ("../models/db")
+async function getToDoList(){
+    // sql语句
+    const sql = 'xxx-x-xxxxx-x-x-x-x';
+    const [results] = await pool.execute(sql);
+    return results
+}
+module.exports={
+    getToDoList,
+  }

@@ -1,0 +1,37 @@
+
+const express = require('express')
+const app = express() // 创建一个expess应用
+const path = require("path")
+const staticRoot = path.resolve(__dirname,"../public")
+
+/**
+ * 下面这段代码的作用：
+ * 当请求时，会根据请求路径（req.path),从指定的目录中寻找是否存在该文件，如果存在，直接响应文件内容，而不再移交给后续中间件
+ * 如果不存在，则直接移交给后续的中间件处理
+ * 默认情况下，如果映射的结果是一个目录，则会自动使用index.html文件
+ */
+app.use(express.static(staticRoot,{
+    // 配置访问静态资源时默认的访问路径
+    index:"index.html"
+}))
+
+// 处理application/x-www-form-urlencoded格式中间件
+// 原理就是特有的解析后，将解析结果放入req，使用next继续后传
+// extended:true 启用新的解析插件qs，放弃query
+app.use(express.urlencoded({extended:true}));
+// 处理application/json格式中间件
+// 原理就是特有的解析后，将解析结果放入req，使用next继续后传
+app.use(express.json());
+
+
+// 添加路由源，当路径匹配到/api/blog时，移交处理请求
+// 前台请求
+app.use("/api",require("./api/init"))
+
+//处理错误中间件
+app.use(require("./utils/errorMiddleware"))
+
+
+app.listen(<%= port %>, () => {
+  console.log(`Example app listening at http://localhost:<%= port %>`)
+})

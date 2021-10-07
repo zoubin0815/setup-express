@@ -1,0 +1,22 @@
+{
+  "name": "setup-express",
+  "version": "1.0.0",
+  "description": "teach",
+  "main": "index.js",
+  "bin": "./bin/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node index.js",
+    "test-g": "setup-express"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "ejs": "^3.1.6",
+    "execa": "^5.1.1",
+    "inquirer": "^8.1.5",
+    "prettier": "^2.4.1"
+  },
+  "repository": {}
+}

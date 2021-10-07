@@ -1,0 +1,14 @@
+const express = require("express");
+const handle = require("../../services/init")
+// 处理出错函数
+const {asyncHandler} = require("../utils/getSendResult");
+// 分批处理路由信息，转发到不同地方处理，匹配时以基地址为主
+const router  = express.Router()
+
+/**
+ * 获取todolist信息
+ */
+ router.get("/xxxxx",asyncHandler(async(req,res)=>{
+    return blog.getTodoListServices();
+  }))
+  module.exports = router
