@@ -17,4 +17,4 @@ setup-express
 ```
 
 # 说明
-该库仅仅供学习使用，代码有详细注释欢迎访问github
+该库仅仅供学习使用，代码有详细注释欢迎访问[github](https://github.com/zoubin0815/setup-express)
