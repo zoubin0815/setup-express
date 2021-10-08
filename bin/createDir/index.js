@@ -11,6 +11,8 @@ import createPublic from './createPublic/index.js';
 import createModels from './createModels/index.js';
 import createServices from './createServices/index.js';
 import createRoute from './createRoute/index.js';
+import path from "path";
+
 /**
  * 1. 收集用户输入问题
  */
@@ -50,7 +52,9 @@ execa("npm install",{
     console.log(chalk.green(`npm run start`))
 })
 
+
 function getRootPath(){
     // return "./hei"
-    return `./${config.packageName}`
+    let url = path.resolve('./');
+    return `${url}/${config.packageName}`
 }
